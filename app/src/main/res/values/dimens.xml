@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="height_recycler_element">50dp</dimen>
+    <dimen name="elevation_actionbar">4dp</dimen>
+    <dimen name="margin_start_card_view">20dp</dimen>
+    <dimen name="margin_top_card_view">10dp</dimen>
+    <dimen name="corner_radius_card_view">4dp</dimen>
+    <dimen name="height_card_view">250dp</dimen>
+    <dimen name="textsize_normal">14sp</dimen>
 </resources>

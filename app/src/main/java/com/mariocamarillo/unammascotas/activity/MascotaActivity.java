@@ -1,13 +1,13 @@
-package com.mariocamarillo.unammascotas;
+package com.mariocamarillo.unammascotas.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ListaMascotasActivity extends AppCompatActivity {
+public class MascotaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_mascotas);
+        setContentView(R.layout.activity_mascota);
     }
 }
