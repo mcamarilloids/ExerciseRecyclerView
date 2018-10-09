@@ -2,10 +2,11 @@
 <resources>
     <dimen name="elevation_actionbar">4dp</dimen>
     <dimen name="margin_start_card_view">20dp</dimen>
+    <dimen name="margin_start_elements">5dp</dimen>
     <dimen name="margin_top_card_view">10dp</dimen>
     <dimen name="corner_radius_card_view">4dp</dimen>
     <dimen name="height_card_view">250dp</dimen>
-    <dimen name="textsize_normal">14sp</dimen>
-    <dimen name="textsize_title">16sp</dimen>
+    <dimen name="textsize_normal">16sp</dimen>
+    <dimen name="textsize_title">18sp</dimen>
     <dimen name="height_actionbar_icons">40sp</dimen>
 </resources>

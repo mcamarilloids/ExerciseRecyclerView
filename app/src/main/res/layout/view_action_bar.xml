@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     android:elevation="@dimen/elevation_actionbar"
     android:id="@+id/toolbar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,13 +22,16 @@
             android:layout_alignParentStart="true"
             android:src="@drawable/huella"
             android:id="@+id/huella"
+            android:layout_centerVertical="true"
             />
         <ImageView
             android:layout_width="@dimen/height_actionbar_icons"
             android:layout_height="@dimen/height_actionbar_icons"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/huella"
+            android:layout_centerVertical="true"
+            android:src="@drawable/top"
             android:id="@+id/top"
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -34,6 +39,7 @@
             android:layout_toStartOf="@id/top"
             android:gravity="center"
             android:textSize="@dimen/textsize_title"
+            android:layout_centerVertical="true"
             />
     </RelativeLayout>
 

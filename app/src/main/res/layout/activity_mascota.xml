@@ -6,4 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.MascotaActivity">
 
+    <include android:id="@+id/action_bar"
+        layout="@layout/view_action_bar"/>
+
 </LinearLayout>

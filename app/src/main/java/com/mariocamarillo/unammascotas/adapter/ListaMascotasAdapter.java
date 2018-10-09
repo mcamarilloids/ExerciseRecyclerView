@@ -1,5 +1,6 @@
 package com.mariocamarillo.unammascotas.adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +13,7 @@ import com.mariocamarillo.unammascotas.R;
 import com.mariocamarillo.unammascotas.data.Mascotas;
 import java.util.List;
 
-public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdapter.ViewHolder>  {
+public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdapter.ViewHolderP>  {
 
     List<Mascotas> listMascotas;
 
@@ -22,13 +23,14 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ListaMascotasAdapter.ViewHolderP onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.element_recycler_view_mascota, viewGroup, false);
-        return new ViewHolder(v);
+        ViewHolderP vh = new ViewHolderP(v);
+        return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolderP viewHolder, int i) {
         final Mascotas mascota = listMascotas.get(i);
         viewHolder.imgImagenGeneral.setImageResource(mascota.getImage());
         viewHolder.txtNombre.setText(mascota.getName());
@@ -36,19 +38,19 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
             @Override
             public void onClick(View v) {
                 mascota.setLikes(mascota.getLikes()+1);
-                viewHolder.txtLikes.setText(mascota.getLikes());
+                viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
             }
         });
         //viewHolder.imgHuesoAmarillo.setImageResource(mascota.getImage());
-        viewHolder.txtLikes.setText(mascota.getLikes());
+        viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
     }
 
     @Override
     public int getItemCount() {
-        return listMascotas.size();
+       return listMascotas.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolderP extends RecyclerView.ViewHolder {
 
         public ImageView imgImagenGeneral;
         public TextView txtNombre;
@@ -56,7 +58,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
         public ImageView imgHuesoAmarillo;
         public TextView txtLikes;
 
-        public ViewHolder(View item) {
+        public ViewHolderP(View item) {
             super(item);
             imgImagenGeneral = item.findViewById(R.id.general_image);
             txtNombre = item.findViewById(R.id.txt_name);

@@ -1,11 +1,14 @@
 package com.mariocamarillo.unammascotas.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.mariocamarillo.unammascotas.R;
 import com.mariocamarillo.unammascotas.adapter.ListaMascotasAdapter;
@@ -30,9 +33,18 @@ public class ListaMascotasActivity extends AppCompatActivity {
     }
 
     private void setToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.action_bar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        //toolbar.setTitle(getString(R.string.titulo_pantalla));
+        toolbar.setTitle(R.string.titulo_pantalla);
+        ImageView top = toolbar.findViewById(R.id.top);
+        top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MascotaActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void llenarLista() {
