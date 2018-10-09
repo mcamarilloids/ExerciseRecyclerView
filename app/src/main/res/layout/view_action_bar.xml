@@ -8,6 +8,7 @@
     android:id="@+id/toolbar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:title="@string/titulo_pantalla"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,6 +41,7 @@
             android:gravity="center"
             android:textSize="@dimen/textsize_title"
             android:layout_centerVertical="true"
+            android:id="@+id/title"
             />
     </RelativeLayout>
 

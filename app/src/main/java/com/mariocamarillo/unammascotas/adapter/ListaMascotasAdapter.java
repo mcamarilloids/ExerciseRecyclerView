@@ -16,9 +16,11 @@ import java.util.List;
 public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdapter.ViewHolderP>  {
 
     List<Mascotas> listMascotas;
+    boolean esCalificable;
 
-    public ListaMascotasAdapter(List<Mascotas> listMascotas) {
+    public ListaMascotasAdapter(List<Mascotas> listMascotas, boolean esCalificable) {
         this.listMascotas = listMascotas;
+        this.esCalificable = esCalificable;
     }
 
     @NonNull
@@ -34,14 +36,15 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
         final Mascotas mascota = listMascotas.get(i);
         viewHolder.imgImagenGeneral.setImageResource(mascota.getImage());
         viewHolder.txtNombre.setText(mascota.getName());
-        viewHolder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mascota.setLikes(mascota.getLikes()+1);
-                viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
-            }
-        });
-        //viewHolder.imgHuesoAmarillo.setImageResource(mascota.getImage());
+        if (esCalificable) {
+            viewHolder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mascota.setLikes(mascota.getLikes() + 1);
+                    viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
+                }
+            });
+        }
         viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
     }
 

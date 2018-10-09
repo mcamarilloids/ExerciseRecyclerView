@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mariocamarillo.unammascotas.R;
 import com.mariocamarillo.unammascotas.adapter.ListaMascotasAdapter;
@@ -34,10 +35,10 @@ public class ListaMascotasActivity extends AppCompatActivity {
 
     private void setToolbar() {
         Toolbar toolbar = findViewById(R.id.action_bar);
-        toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.titulo_pantalla);
         ImageView top = toolbar.findViewById(R.id.top);
+        TextView title = toolbar.findViewById(R.id.title);
+        title.setText(getString(R.string.titulo_pantalla));
         top.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +69,7 @@ public class ListaMascotasActivity extends AppCompatActivity {
     }
 
     private void setAdaptador() {
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listMascotas);
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listMascotas, true);
         recyclerView.setAdapter(adapter);
     }
 }
