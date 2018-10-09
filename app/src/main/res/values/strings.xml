@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UNAMMascotas</string>
+    <string name="titulo_pantalla">Petagram</string>
 </resources>

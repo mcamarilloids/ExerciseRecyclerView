@@ -6,6 +6,12 @@ public class Mascotas {
     private String name;
     private int likes;
 
+    public Mascotas(int image, String name, int likes) {
+        this.image = image;
+        this.name = name;
+        this.likes = likes;
+    }
+
     public int getImage() {
         return image;
     }
