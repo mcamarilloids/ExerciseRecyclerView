@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -71,5 +74,29 @@ public class ListaMascotasActivity extends AppCompatActivity {
     private void setAdaptador() {
         ListaMascotasAdapter adapter = new ListaMascotasAdapter(listMascotas, true);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_options, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.contacto:
+                Intent c = new Intent(this, ContactoActivity.class);
+                startActivity(c);
+                return true;
+            case R.id.acerca:
+                Intent a = new Intent(this, AcercaDeActivity.class);
+                startActivity(a);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

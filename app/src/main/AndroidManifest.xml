@@ -21,6 +21,8 @@
             android:value=".activity.ListaMascotasActivity"
             />
          </activity>
+        <activity android:name=".activity.AcercaDeActivity"  android:screenOrientation="portrait" />
+        <activity android:name=".activity.ContactoActivity"  android:screenOrientation="portrait" />
 
 </application>
     </manifest>
