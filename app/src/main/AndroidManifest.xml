@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mariocamarillo.unammascotas">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,16 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ListaMascotasActivity" android:screenOrientation="portrait" >
+        <activity android:name=".activity.GeneralActivity" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MascotaActivity" android:parentActivityName=".activity.ListaMascotasActivity" android:screenOrientation="portrait" >
+        <activity android:name=".activity.MascotaActivity" android:parentActivityName=".activity.GeneralActivity" android:screenOrientation="portrait" >
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activity.ListaMascotasActivity"
+            android:value=".activity.GeneralActivity"
             />
          </activity>
         <activity android:name=".activity.AcercaDeActivity"  android:screenOrientation="portrait" />

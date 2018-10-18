@@ -3,4 +3,30 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/textsize_title"
+        android:text="@string/desarrollador_nombre"
+        android:layout_marginTop="@dimen/margin_top_edittext"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="@dimen/textsize_title"
+        android:text="@string/desarrollador_numero"
+        android:layout_marginTop="@dimen/margin_top_edittext"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textsize_title"
+        android:text="@string/desarrollador_mail"
+        android:layout_marginTop="@dimen/margin_top_edittext"
+        android:gravity="center"
+        />
 </LinearLayout>

@@ -1,11 +1,11 @@
 package com.mariocamarillo.unammascotas.activity;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,29 +15,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mariocamarillo.unammascotas.R;
-import com.mariocamarillo.unammascotas.adapter.ListaMascotasAdapter;
-import com.mariocamarillo.unammascotas.data.Mascotas;
+import com.mariocamarillo.unammascotas.adapter.ViewPagerAdapter;
+import com.mariocamarillo.unammascotas.fragment.ListaMascotasFragment;
+import com.mariocamarillo.unammascotas.fragment.PerfilMascotasFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaMascotasActivity extends AppCompatActivity {
+public class GeneralActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private List<Mascotas> listMascotas;
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_mascotas);
+        setContentView(R.layout.activity_general);
         setToolbar();
-        llenarLista();
-        setVistas();
-        setAdaptador();
+        //llenarLista();
+        //setVistas();
+        //setAdaptador();
+        crearViewPager();
     }
 
     private void setToolbar() {
-        Toolbar toolbar = findViewById(R.id.action_bar);
+        toolbar = findViewById(R.id.action_bar);
         setSupportActionBar(toolbar);
         ImageView top = toolbar.findViewById(R.id.top);
         TextView title = toolbar.findViewById(R.id.title);
@@ -49,31 +53,18 @@ public class ListaMascotasActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
     }
 
-    private void llenarLista() {
-        listMascotas = new ArrayList<>();
-        listMascotas.add(new Mascotas(R.drawable.perros1, "titi", 0));
-        listMascotas.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listMascotas.add(new Mascotas(R.drawable.perros3, "lolo", 4));
-        listMascotas.add(new Mascotas(R.drawable.perros4, "sasa", 1));
-        listMascotas.add(new Mascotas(R.drawable.perros5, "wiwiwi", 3));
-        listMascotas.add(new Mascotas(R.drawable.perros6, "rino", 6));
-        listMascotas.add(new Mascotas(R.drawable.perros7, "xoxo", 7));
-    }
 
-    private void setVistas() {
-        recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llm);
 
-    }
-
-    private void setAdaptador() {
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listMascotas, true);
-        recyclerView.setAdapter(adapter);
+    private void crearViewPager() {
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new ListaMascotasFragment());
+        fragments.add(new PerfilMascotasFragment());
+        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

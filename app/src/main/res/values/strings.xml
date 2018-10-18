@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">UNAMMascotas</string>
     <string name="titulo_pantalla">Petagram</string>
-    <string name="menu_acerca">Acerca de</string>
     <string name="menu_contacto">Contacto</string>
+    <string name="menu_acerca">Acerca de</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="enviar">Enviar comentario</string>
+    <string name="desarrollador_nombre">Mario Alberto Camarillo Salazar</string>
+    <string name="desarrollador_numero">Whats App: 4425631171</string>
+    <string name="desarrollador_mail">mcamarilloids@gmail.com</string>
 </resources>

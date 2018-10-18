@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ListaMascotasActivity">
+    tools:context=".activity.GeneralActivity">
 
-    <include android:id="@+id/action_bar"
-             layout="@layout/view_action_bar"
-
-        />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
