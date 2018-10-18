@@ -1,6 +1,7 @@
 package com.mariocamarillo.unammascotas.activity;
 
 import android.content.Intent;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mariocamarillo.unammascotas.R;
@@ -41,7 +43,8 @@ public class GeneralActivity extends AppCompatActivity {
     }
 
     private void setToolbar() {
-        toolbar = findViewById(R.id.action_bar);
+        CoordinatorLayout linearLayout = findViewById(R.id.coordinator);
+        toolbar = linearLayout.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ImageView top = toolbar.findViewById(R.id.top);
         TextView title = toolbar.findViewById(R.id.title);
@@ -65,6 +68,8 @@ public class GeneralActivity extends AppCompatActivity {
         fragments.add(new PerfilMascotasFragment());
         viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.casa);
+        tabLayout.getTabAt(1).setIcon(R.drawable.perro);
     }
 
     @Override

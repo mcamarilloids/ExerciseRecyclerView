@@ -22,8 +22,8 @@
             android:value=".activity.GeneralActivity"
             />
          </activity>
-        <activity android:name=".activity.AcercaDeActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".activity.ContactoActivity"  android:screenOrientation="portrait" />
+        <activity android:name=".activity.AcercaDeActivity"  android:screenOrientation="portrait" android:parentActivityName=".activity.GeneralActivity" />
+        <activity android:name=".activity.ContactoActivity"  android:screenOrientation="portrait" android:parentActivityName=".activity.GeneralActivity"/>
 
 </application>
     </manifest>

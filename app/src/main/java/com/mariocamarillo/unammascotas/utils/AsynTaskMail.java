@@ -64,14 +64,14 @@ public class AsynTaskMail extends AsyncTask<Void, Void, Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("anisha@gmail.com", "manisha123");
+                        return new PasswordAuthentication("jigasoft.stp2015@gmail.com", "OurAccountEnterprise2015");
                     }
                 });
         try {
             //Creating MimeMessage object
             MimeMessage mm = new MimeMessage(session);
             //Setting sender address
-            mm.setFrom(new InternetAddress("anisha@gmail.com"));
+            mm.setFrom(new InternetAddress("jigasoft.stp2015@gmail.com"));
             //Adding receiver
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             //Adding subject

@@ -4,10 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include android:id="@+id/action_bar"
+        layout="@layout/view_action_bar"/>
+
     <android.support.design.widget.TextInputLayout
     android:layout_width="match_parent"
         android:id="@+id/tilNombre"
-        android:layout_marginTop="@dimen/margin_top_edittext"
+        android:layout_marginTop="@dimen/margin_top_toolbar"
     android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
@@ -63,6 +66,7 @@
         android:text="@string/enviar"
         android:layout_alignParentBottom="true"
         android:id="@+id/btnEnviar"
+        android:background="@color/colorPrimary"
         />
 
 </RelativeLayout>

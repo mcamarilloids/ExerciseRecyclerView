@@ -7,9 +7,11 @@
     <dimen name="margin_top_edittext">10dp</dimen>
     <dimen name="corner_radius_card_view">4dp</dimen>
     <dimen name="height_card_view">250dp</dimen>
+    <dimen name="height_card_view_grid">100dp</dimen>
     <dimen name="textsize_normal">16sp</dimen>
     <dimen name="textsize_title">18sp</dimen>
     <dimen name="height_actionbar_icons">40dp</dimen>
     <dimen name="height_imagen_perfil">80dp</dimen>
     <dimen name="height_linea_separacion">2dp</dimen>
+    <dimen name="margin_top_toolbar">70dp</dimen>
 </resources>

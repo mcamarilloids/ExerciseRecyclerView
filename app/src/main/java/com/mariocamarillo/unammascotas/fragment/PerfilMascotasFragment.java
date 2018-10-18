@@ -53,7 +53,7 @@ public class PerfilMascotasFragment extends Fragment  {
     }
 
     private void setVistas(final View view) {
-        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm = new GridLayoutManager(getActivity(), 3);
         recyclerView.setLayoutManager(glm);
@@ -61,7 +61,7 @@ public class PerfilMascotasFragment extends Fragment  {
     }
 
     private void setAdaptador() {
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listFotos, false);
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listFotos, false, true);
         recyclerView.setAdapter(adapter);
     }
 }

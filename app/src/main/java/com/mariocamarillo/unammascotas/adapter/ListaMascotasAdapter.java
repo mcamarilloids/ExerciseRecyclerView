@@ -17,16 +17,21 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
 
     List<Mascotas> listMascotas;
     boolean esCalificable;
+    boolean esGrid;
 
-    public ListaMascotasAdapter(List<Mascotas> listMascotas, boolean esCalificable) {
+    public ListaMascotasAdapter(List<Mascotas> listMascotas, boolean esCalificable, boolean esGrid) {
         this.listMascotas = listMascotas;
         this.esCalificable = esCalificable;
+        this.esGrid = esGrid;
     }
 
     @NonNull
     @Override
     public ListaMascotasAdapter.ViewHolderP onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.element_recycler_view_mascota, viewGroup, false);
+        if(esGrid){
+            v.getLayoutParams().height = (int) viewGroup.getResources().getDimension(R.dimen.height_card_view_grid);
+        }
         ViewHolderP vh = new ViewHolderP(v);
         return vh;
     }
@@ -44,6 +49,10 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
                     viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
                 }
             });
+        }
+        if(esGrid){
+            viewHolder.txtNombre.setVisibility(View.GONE);
+            viewHolder.imgHuesoBlanco.setVisibility(View.GONE);
         }
         viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
     }

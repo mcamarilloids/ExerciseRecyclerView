@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <include android:id="@+id/action_bar"
+        layout="@layout/view_action_bar"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -9,17 +12,19 @@
         android:textStyle="bold"
         android:textSize="@dimen/textsize_title"
         android:text="@string/desarrollador_nombre"
-        android:layout_marginTop="@dimen/margin_top_edittext"
+        android:layout_marginTop="@dimen/margin_top_toolbar"
         android:gravity="center"
+        android:id="@+id/txtNombre"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_below="@id/txtNombre"
         android:textSize="@dimen/textsize_title"
         android:text="@string/desarrollador_numero"
         android:layout_marginTop="@dimen/margin_top_edittext"
         android:gravity="center"
+        android:id="@+id/txtNumero"
         />
     <TextView
         android:layout_width="match_parent"
@@ -28,5 +33,6 @@
         android:text="@string/desarrollador_mail"
         android:layout_marginTop="@dimen/margin_top_edittext"
         android:gravity="center"
+        android:layout_below="@id/txtNumero"
         />
-</LinearLayout>
+</RelativeLayout>

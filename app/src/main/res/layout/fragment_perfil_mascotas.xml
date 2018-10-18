@@ -9,7 +9,7 @@
        android:layout_marginTop="@dimen/margin_top_edittext"
        android:id="@+id/imagenPerfil"
        android:layout_gravity="center"
-       />
+       android:src="@drawable/perros2"       />
 
     <TextView
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="@dimen/margin_top_edittext"
+        android:text="nunu"
         />
 
     <LinearLayout
