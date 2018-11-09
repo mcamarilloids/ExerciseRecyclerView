@@ -57,6 +57,16 @@ public class BaseDatos extends SQLiteOpenHelper {
         values.put(ConstantsBD.COLUMNA_LIKES, 0);
         values.put(ConstantsBD.COLUMNA_FOTO, R.drawable.perros5);
         db.insert(ConstantsBD.TABLA_NOMBRES, null,values);
+        values = new ContentValues();
+        values.put(ConstantsBD.COLUMNA_NOMBRE, "pepa");
+        values.put(ConstantsBD.COLUMNA_LIKES, 0);
+        values.put(ConstantsBD.COLUMNA_FOTO, R.drawable.perros6);
+        db.insert(ConstantsBD.TABLA_NOMBRES, null,values);
+        values = new ContentValues();
+        values.put(ConstantsBD.COLUMNA_NOMBRE, "ñoño");
+        values.put(ConstantsBD.COLUMNA_LIKES, 0);
+        values.put(ConstantsBD.COLUMNA_FOTO, R.drawable.perros7);
+        db.insert(ConstantsBD.TABLA_NOMBRES, null,values);
         db.close();
     }
 
@@ -81,8 +91,9 @@ public class BaseDatos extends SQLiteOpenHelper {
     public List<Mascotas> getMascotasLikes(){
         SQLiteDatabase db = this.getWritableDatabase();
         List<Mascotas> mascotas = new ArrayList<>();
-        Cursor c = db.query(ConstantsBD.TABLA_NOMBRES, ConstantsBD.COLUMNAS, null, null, null, null, "likes");
+        Cursor c = db.query(ConstantsBD.TABLA_NOMBRES, ConstantsBD.COLUMNAS, null, null, null, null, "likes DESC");
         //Nos aseguramos de que existe al menos un registro
+        int top5 = 0;
         if (c.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             do {
@@ -91,7 +102,8 @@ public class BaseDatos extends SQLiteOpenHelper {
                 int likes= c.getInt(2);
                 int fotos = c.getInt(3);
                 mascotas.add(new Mascotas(id, fotos, nombre, likes));
-            } while(c.moveToNext());
+                top5++;
+            } while(c.moveToNext() && top5 < 5);
         }
         return mascotas;
     }
@@ -101,7 +113,6 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put("likes",likes+1);
-
         int i = db.update(ConstantsBD.TABLA_NOMBRES,
                 values,
                  ConstantsBD.COLUMNA_ID + " = ?",

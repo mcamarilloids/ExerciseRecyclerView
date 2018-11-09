@@ -58,7 +58,7 @@ public class MascotaActivity extends AppCompatActivity {
         if(!datosInsertados){
             bd.agregarMascotas();
         }
-        listMascotas.addAll(bd.getMascotas());
+        listMascotas.addAll(bd.getMascotasLikes());
     }
 
     private boolean checarPreferencias() {

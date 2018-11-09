@@ -54,7 +54,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
                         mascota.setLikes(mascota.getLikes() + 1);
                         viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
                     }
-                    
+
                 }
             });
         }
