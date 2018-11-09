@@ -77,4 +77,36 @@ public class BaseDatos extends SQLiteOpenHelper {
         }
         return mascotas;
     }
+
+    public List<Mascotas> getMascotasLikes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Mascotas> mascotas = new ArrayList<>();
+        Cursor c = db.query(ConstantsBD.TABLA_NOMBRES, ConstantsBD.COLUMNAS, null, null, null, null, "likes");
+        //Nos aseguramos de que existe al menos un registro
+        if (c.moveToFirst()) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
+                int id= c.getInt(0);
+                String nombre = c.getString(1);
+                int likes= c.getInt(2);
+                int fotos = c.getInt(3);
+                mascotas.add(new Mascotas(id, fotos, nombre, likes));
+            } while(c.moveToNext());
+        }
+        return mascotas;
+    }
+
+    public boolean editarLike(int id, int likes){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("likes",likes+1);
+
+        int i = db.update(ConstantsBD.TABLA_NOMBRES,
+                values,
+                 ConstantsBD.COLUMNA_ID + " = ?",
+                new String[] { String.valueOf( id ) });
+        db.close();
+        return i>0;
+    }
 }

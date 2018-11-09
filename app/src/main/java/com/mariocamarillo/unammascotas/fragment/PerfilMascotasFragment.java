@@ -61,7 +61,7 @@ public class PerfilMascotasFragment extends Fragment  {
     }
 
     private void setAdaptador() {
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listFotos, false, true);
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(getActivity(), listFotos, false, true);
         recyclerView.setAdapter(adapter);
     }
 }

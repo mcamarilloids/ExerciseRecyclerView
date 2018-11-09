@@ -1,5 +1,6 @@
 package com.mariocamarillo.unammascotas.adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mariocamarillo.unammascotas.R;
+import com.mariocamarillo.unammascotas.basedatos.BaseDatos;
 import com.mariocamarillo.unammascotas.data.Mascotas;
 import java.util.List;
 
@@ -17,11 +19,13 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
     List<Mascotas> listMascotas;
     boolean esCalificable;
     boolean esGrid;
+    Activity activity;
 
-    public ListaMascotasAdapter(List<Mascotas> listMascotas, boolean esCalificable, boolean esGrid) {
+    public ListaMascotasAdapter(Activity activity, List<Mascotas> listMascotas, boolean esCalificable, boolean esGrid) {
         this.listMascotas = listMascotas;
         this.esCalificable = esCalificable;
         this.esGrid = esGrid;
+        this.activity = activity;
     }
 
     @NonNull
@@ -44,8 +48,13 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
             viewHolder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mascota.setLikes(mascota.getLikes() + 1);
-                    viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
+                    BaseDatos bd = new BaseDatos(activity);
+                    boolean likesEditados= bd.editarLike(mascota.getId(), mascota.getLikes());
+                    if(likesEditados){
+                        mascota.setLikes(mascota.getLikes() + 1);
+                        viewHolder.txtLikes.setText(String.valueOf(mascota.getLikes()));
+                    }
+                    
                 }
             });
         }

@@ -59,11 +59,6 @@ public class MascotaActivity extends AppCompatActivity {
             bd.agregarMascotas();
         }
         listMascotas.addAll(bd.getMascotas());
-        /*listMascotas.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listMascotas.add(new Mascotas(R.drawable.perros5, "wiwiwi", 3));
-        listMascotas.add(new Mascotas(R.drawable.perros3, "lolo", 4));
-        listMascotas.add(new Mascotas(R.drawable.perros6, "rino", 6));
-        listMascotas.add(new Mascotas(R.drawable.perros7, "xoxo", 7));*/
     }
 
     private boolean checarPreferencias() {
@@ -87,7 +82,7 @@ public class MascotaActivity extends AppCompatActivity {
     }
 
     private void setAdaptador() {
-        ListaMascotasAdapter adapter = new ListaMascotasAdapter(listMascotas, false, false);
+        ListaMascotasAdapter adapter = new ListaMascotasAdapter(this, listMascotas, false, false);
         recyclerView.setAdapter(adapter);
     }
 }
