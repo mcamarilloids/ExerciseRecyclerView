@@ -38,16 +38,16 @@ public class PerfilMascotasFragment extends Fragment  {
 
     private void llenarLista() {
         listFotos = new ArrayList<>();
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listFotos.add(new Mascotas(R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2, R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
+        listFotos.add(new Mascotas(2,R.drawable.perros2, "nunu", 2));
 
 
     }

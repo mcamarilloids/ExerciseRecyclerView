@@ -2,30 +2,32 @@ package com.mariocamarillo.unammascotas.data;
 
 public class Mascotas {
 
-    private int image;
-    private String name;
+    private int id;
+    private int foto;
+    private String nombre;
     private int likes;
 
-    public Mascotas(int image, String name, int likes) {
-        this.image = image;
-        this.name = name;
+    public Mascotas(int id, int foto, String nombre, int likes) {
+        this.id = id;
+        this.foto = foto;
+        this.nombre = nombre;
         this.likes = likes;
     }
 
-    public int getImage() {
-        return image;
+    public int getFoto() {
+        return foto;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setFoto(int foto) {
+        this.foto = foto;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getLikes() {

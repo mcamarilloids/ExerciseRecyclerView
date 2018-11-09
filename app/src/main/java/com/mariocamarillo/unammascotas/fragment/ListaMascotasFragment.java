@@ -1,5 +1,7 @@
 package com.mariocamarillo.unammascotas.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.mariocamarillo.unammascotas.R;
 import com.mariocamarillo.unammascotas.adapter.ListaMascotasAdapter;
+import com.mariocamarillo.unammascotas.basedatos.BaseDatos;
 import com.mariocamarillo.unammascotas.data.Mascotas;
 
 import java.util.ArrayList;
@@ -37,13 +40,23 @@ public class ListaMascotasFragment extends Fragment {
 
     private void llenarLista() {
         listMascotas = new ArrayList<>();
-        listMascotas.add(new Mascotas(R.drawable.perros1, "titi", 0));
-        listMascotas.add(new Mascotas(R.drawable.perros2, "nunu", 2));
-        listMascotas.add(new Mascotas(R.drawable.perros3, "lolo", 4));
-        listMascotas.add(new Mascotas(R.drawable.perros4, "sasa", 1));
-        listMascotas.add(new Mascotas(R.drawable.perros5, "wiwiwi", 3));
-        listMascotas.add(new Mascotas(R.drawable.perros6, "rino", 6));
-        listMascotas.add(new Mascotas(R.drawable.perros7, "xoxo", 7));
+        BaseDatos bd = new BaseDatos(getActivity());
+        boolean datosInsertados = checarPreferencias();
+        if(!datosInsertados){
+            bd.agregarMascotas();
+        }
+        listMascotas.addAll(bd.getMascotas());
+    }
+
+    private boolean checarPreferencias() {
+        SharedPreferences prefs =
+                getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        boolean datosInsertados = prefs.getBoolean("insertados", false);
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("insertados", true);
+        editor.apply();
+        return datosInsertados;
     }
 
     private void setVistas(final View view) {

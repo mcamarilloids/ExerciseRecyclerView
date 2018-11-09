@@ -1,6 +1,5 @@
 package com.mariocamarillo.unammascotas.adapter;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,8 +38,8 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
     @Override
     public void onBindViewHolder(@NonNull final ViewHolderP viewHolder, int i) {
         final Mascotas mascota = listMascotas.get(i);
-        viewHolder.imgImagenGeneral.setImageResource(mascota.getImage());
-        viewHolder.txtNombre.setText(mascota.getName());
+        viewHolder.imgImagenGeneral.setImageResource(mascota.getFoto());
+        viewHolder.txtNombre.setText(mascota.getNombre());
         if (esCalificable) {
             viewHolder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
                 @Override
